@@ -279,7 +279,7 @@ public class OpacityBar extends View {
 					invalidate();
 				} else if (x < mBarPointerHaloRadius) {
 					mBarPointerPosition = mBarPointerHaloRadius;
-					mColor = Color.TRANSPARENT;
+                    calculateColor(Math.round(x));
 					mBarPointerPaint.setColor(mColor);
 					if (mPicker != null) {
 						mPicker.setNewCenterColor(mColor);
@@ -328,7 +328,7 @@ public class OpacityBar extends View {
 	/**
 	 * Set the pointer on the bar. With the opacity value.
 	 * 
-	 * @param saturation
+	 * @param opacity
 	 *            float between 0 > 255
 	 */
 	public void setOpacity(int opacity) {
@@ -378,9 +378,10 @@ public class OpacityBar extends View {
     			mHSVColor);
     		if (Color.alpha(mColor) > 250) {
     		    mColor = Color.HSVToColor(mHSVColor);
-    		} else if (Color.alpha(mColor) < 5) {
-    		    mColor = Color.TRANSPARENT;
     		}
+            //else if (Color.alpha(mColor) < 5) {
+    		//    mColor = Color.TRANSPARENT;
+    		//}
         }
 
 	/**

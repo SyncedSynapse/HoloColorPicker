@@ -281,7 +281,7 @@ public class SaturationBar extends View {
 					if (mPicker != null) {
 						mPicker.setNewCenterColor(mColor);
 						mPicker.changeValueBarColor(mColor);
-						mPicker.changeOpacityBarColor(mColor);
+						//mPicker.changeOpacityBarColor(mColor);
 					}
 					invalidate();
 				} else if (x < mBarPointerHaloRadius) {
@@ -291,7 +291,7 @@ public class SaturationBar extends View {
 					if (mPicker != null) {
 						mPicker.setNewCenterColor(mColor);
 						mPicker.changeValueBarColor(mColor);
-						mPicker.changeOpacityBarColor(mColor);
+						//mPicker.changeOpacityBarColor(mColor);
 					}
 					invalidate();
 				} else if (x > (mBarPointerHaloRadius + mBarLength)) {
@@ -301,7 +301,7 @@ public class SaturationBar extends View {
 					if (mPicker != null) {
 						mPicker.setNewCenterColor(mColor);
 						mPicker.changeValueBarColor(mColor);
-						mPicker.changeOpacityBarColor(mColor);
+						//mPicker.changeOpacityBarColor(mColor);
 					}
 					invalidate();
 				}
@@ -333,7 +333,7 @@ public class SaturationBar extends View {
 		if (mPicker != null) {
 			mPicker.setNewCenterColor(mColor);
 			mPicker.changeValueBarColor(mColor);
-			mPicker.changeOpacityBarColor(mColor);
+			//mPicker.changeOpacityBarColor(mColor);
 		}
 		invalidate();
 	}
@@ -352,7 +352,7 @@ public class SaturationBar extends View {
 		if (mPicker != null) {
 			mPicker.setNewCenterColor(mColor);
 			mPicker.changeValueBarColor(mColor);
-			mPicker.changeOpacityBarColor(mColor);
+			//mPicker.changeOpacityBarColor(mColor);
 		}
 		invalidate();
 	}
@@ -364,15 +364,15 @@ public class SaturationBar extends View {
          *            X-Coordinate of the pointer.
          */
 	private void calculateColor(int x) {
-	    x = x - mBarPointerHaloRadius;
-	    if (x < 0) {
-		x = 0;
-	    } else if (x > mBarLength) {
-		x = mBarLength;
-	    }
-	    mColor = Color.HSVToColor(new float[] { mHSVColor[0],
-                                                    (float) ((mPosToSatFactor * x)), 
-		    				    1f });
+        x = x - mBarPointerHaloRadius;
+        if (x < 0) {
+            x = 0;
+        } else if (x > mBarLength) {
+            x = mBarLength;
+        }
+        mColor = Color.HSVToColor(new float[] { mHSVColor[0],
+                                                (float) ((mPosToSatFactor * x)),
+                                                mHSVColor[2] });
     }
 
 	/**
